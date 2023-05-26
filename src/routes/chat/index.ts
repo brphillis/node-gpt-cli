@@ -12,7 +12,7 @@ chat.get("/", async (req: Request, res: Response) => {
   try {
     const response = await axios.get("https://api.openai.com/v1/models", {
       headers: {
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // Replace with your OpenAI API key
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
     });
