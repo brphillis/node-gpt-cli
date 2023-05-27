@@ -47,11 +47,9 @@ exports.chat.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function*
             headers: {
                 Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
                 "Content-Type": "application/json",
-                // "OpenAI-Organization": "org-UPiwKtTxzdb9SiZceyoEd0r1",
             },
         });
         const firstResponse = response.data.choices[0].message.content;
-        console.log("RESSO", response.data.choices[0].message.content);
         res.json({ firstResponse });
     }
     catch (error) {

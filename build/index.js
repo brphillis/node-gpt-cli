@@ -38,12 +38,6 @@ exports.app.use(express_1.default.json());
 exports.app.use((0, cookie_parser_1.default)());
 exports.app.use(errorHandler_1.errorHandler);
 exports.app.use("/chat", chat_1.chat);
-// const argv = yargs(process.argv.slice(2)).argv as any;
-// console.log(argv);
-// if (argv.build == "uat") {
-// } else {
-//   console.log("other build");
-// }
 exports.app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
 });

@@ -44,7 +44,6 @@ chat.post("/", async (req: Request, res: Response) => {
         },
       }
     );
-
     const firstResponse = response.data.choices[0].message.content;
     res.json({ firstResponse });
   } catch (error: any) {
