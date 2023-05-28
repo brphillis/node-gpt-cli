@@ -31,9 +31,11 @@ const express_1 = __importDefault(require("express"));
 const config = __importStar(require("./config"));
 const chat_1 = require("./routes/chat");
 exports.app = (0, express_1.default)();
-const port = config.PORT;
+const PORT = config.PORT;
+const HOST = config.HOST;
 exports.app.use(express_1.default.json());
 exports.app.use("/chat", chat_1.chat);
-exports.app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+exports.app.listen(PORT, () => {
+    const url = `${HOST}:${PORT}`;
+    console.log(`[server]: Server is running at ${url}`);
 });

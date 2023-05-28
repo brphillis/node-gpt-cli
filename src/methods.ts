@@ -1,3 +1,4 @@
+import { HOST, PORT } from "./config";
 import axios, { AxiosResponse } from "axios";
 
 export const getResponse = async (
@@ -5,12 +6,9 @@ export const getResponse = async (
   fileText?: string
 ): Promise<string> => {
   try {
-    const response: AxiosResponse = await axios.post(
-      "http://localhost:5000/chat",
-      {
-        message: message + (fileText || ""),
-      }
-    );
+    const response: AxiosResponse = await axios.post(`${HOST}:${PORT}/chat`, {
+      message: message + (fileText || ""),
+    });
 
     if (response.status !== 200) {
       throw new Error("Something went wrong.");

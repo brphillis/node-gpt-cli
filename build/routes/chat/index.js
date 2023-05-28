@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.chat = void 0;
 const axios_1 = __importDefault(require("axios"));
 const express_1 = __importDefault(require("express"));
-require("dotenv").config();
+const config_1 = require("../../config");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 exports.chat = express_1.default.Router();
@@ -23,7 +23,7 @@ exports.chat.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const response = yield axios_1.default.get("https://api.openai.com/v1/models", {
             headers: {
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+                Authorization: `Bearer ${config_1.OPENAI_API_KEY}`,
                 "Content-Type": "application/json",
             },
         });

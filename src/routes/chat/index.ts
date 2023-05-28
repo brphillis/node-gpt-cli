@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import express, { Request, Response } from "express";
-
-require("dotenv").config();
+import { OPENAI_API_KEY } from "../../config";
 
 const app = express();
 app.use(express.json());
@@ -12,11 +11,10 @@ chat.get("/", async (req: Request, res: Response) => {
   try {
     const response = await axios.get("https://api.openai.com/v1/models", {
       headers: {
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
     });
-
     const models = response.data.data;
     res.json({ models });
   } catch (error: any) {
@@ -28,7 +26,6 @@ chat.get("/", async (req: Request, res: Response) => {
 chat.post("/", async (req: Request, res: Response) => {
   try {
     const { message } = req.body;
-
     const response: AxiosResponse = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {

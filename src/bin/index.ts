@@ -2,7 +2,7 @@
 
 import yargs from "yargs";
 import fs from "fs";
-import { getResponse } from "../utility/methods";
+import { getResponse } from "../methods";
 
 interface Options {
   m: string;

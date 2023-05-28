@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const fs_1 = __importDefault(require("fs"));
-const methods_1 = require("../utility/methods");
+const methods_1 = require("../methods");
 const options = yargs_1.default
     .usage("Usage: $0 [options]")
     .option("m", {
