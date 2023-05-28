@@ -30,13 +30,9 @@ exports.app = void 0;
 const express_1 = __importDefault(require("express"));
 const config = __importStar(require("./config"));
 const chat_1 = require("./routes/chat");
-const cookie_parser_1 = __importDefault(require("cookie-parser"));
-const errorHandler_1 = require("./middleware/errorHandler");
 exports.app = (0, express_1.default)();
 const port = config.PORT;
 exports.app.use(express_1.default.json());
-exports.app.use((0, cookie_parser_1.default)());
-exports.app.use(errorHandler_1.errorHandler);
 exports.app.use("/chat", chat_1.chat);
 exports.app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
